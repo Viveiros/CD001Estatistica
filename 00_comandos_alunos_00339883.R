@@ -18,5 +18,17 @@ names(present)
 # Repostas: item 2
 #Como estas contagens se comparam aos dados de Arbuthnot?
 #Eles estão numa escala similar?
-plot(x = arbuthnot$year, y = arbuthnot$girls, type = "l")
-plot(x = present$year, y = present$girls, type = "l")
+
+# Repostas: item 3
+#A observação de Arbuthnot de que os meninos nascem numa proporção maior que as meninas se
+#mantém nos EUA?
+#gráfico das proporções dos meninos com relação ao tempo
+plot(x = arbuthnot$year, y = arbuthnot$boys / (arbuthnot$boys + arbuthnot$girls), type = "l")
+plot(x = present$year, y = present$boys / (present$boys + present$girls), type = "l")
+
+# Sim a proporção de nascimento de meninos em relação ao tempo se mantém no EUA assim como em Arbuthnot.
+
+# Repostas: item 4
+#Crie um gráfico que mostre a razão de meninos para meninas para cada ano do conjunto de dados.
+#O que você pode verificar?
+plot(x = present$year, y = present$boys / present$girls, type = "l")
