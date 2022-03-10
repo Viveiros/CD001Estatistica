@@ -55,6 +55,7 @@ barplot(table(cdc$smoke100))
 #ou utilizando a criação de um objeto antes
 smoke <- table(cdc$smoke100)
 barplot(smoke)
+smoke
 
 #Exerício 2
 #Crie um sumário numérico para height (altura) e age (idade), e 

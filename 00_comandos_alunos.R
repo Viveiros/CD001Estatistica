@@ -41,6 +41,7 @@ plot(arbuthnot$year, arbuthnot$boys + arbuthnot$girls, type = "l")
 
 #razão entre meninos e meninas batizados
 5218 / 4683  #em 1629
+arbuthnot$boys
 arbuthnot$boys / arbuthnot$girls
 
 #proporção de recém-nascidos que são meninos
