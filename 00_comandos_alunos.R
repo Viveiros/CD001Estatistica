@@ -20,6 +20,7 @@ arbuthnot$boys
 #somente dados de meninas
 arbuthnot$girls
 
+#Grafico de dispersão
 #gráfico do número de meninas batizadas por ano
 plot(x = arbuthnot$year, y = arbuthnot$girls)
 plot(x = arbuthnot$year, y = arbuthnot$girls, type = "l")
@@ -38,10 +39,10 @@ arbuthnot$total<-arbuthnot$boys + arbuthnot$girls
 
 #gráfico com o total de batismos por ano
 plot(arbuthnot$year, arbuthnot$boys + arbuthnot$girls, type = "l")
+plot(arbuthnot$year, arbuthnot$total, type = "l")
 
 #razão entre meninos e meninas batizados
 5218 / 4683  #em 1629
-arbuthnot$boys
 arbuthnot$boys / arbuthnot$girls
 
 #proporção de recém-nascidos que são meninos

@@ -1,18 +1,16 @@
-source("http://www.openintro.org/stat/data/present.R")
 source("http://www.openintro.org/stat/data/arbuthnot.R")
+
+#EUA
+source("http://www.openintro.org/stat/data/present.R")
 
 # - Exercicio:
 # Repostas: item 1
 #Quais anos estão incluídos neste conjunto de dados? 
-
 #somente dados de anos
 present$year
-
 # Quais são as dimensões da base de dados e
 dim(present)
-
 #quais são os nomes das colunas ou variáveis?
-#nomes das variáveis
 names(present)
 
 # Repostas: item 2
@@ -35,7 +33,9 @@ names(present)
 #gráfico das proporções dos meninos com relação ao tempo
 plot(x = arbuthnot$year, y = arbuthnot$boys / (arbuthnot$boys + arbuthnot$girls), type = "l")
 plot(x = present$year, y = present$boys / (present$boys + present$girls), type = "l")
-# Sim a proporção de nascimento de meninos em relação ao tempo se mantém no EUA assim como em Arbuthnot.
+# Sim a proporção maior de meninos em relação a meninas se mantém porém a variação dessa proporção
+# que é diferente.
+
 
 # Repostas: item 4
 #Crie um gráfico que mostre a razão de meninos para meninas para cada ano do conjunto de dados.
