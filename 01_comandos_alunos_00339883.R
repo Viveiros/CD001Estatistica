@@ -8,7 +8,7 @@ source("http://www.openintro.org/stat/data/cdc.R")
 #  Crie um gráfico de dispersão da variável peso em relação ao peso desejado. Defina a relação entre
 #  essas duas variáveis.
 plot(x = cdc$weight, y = cdc$wtdesire)
-# R. O peso desejado é em geral menor que o peso.
+# R. Pessoas com maior peso tendem a ter um peso desejado diferente do seu peso.
 summary(cdc$weight)
 summary(cdc$wtdesire)
 
@@ -39,9 +39,25 @@ boxplot(cdc$wdiff)
 # Repostas: item 5
 # Utilizando sumários numéricos e um gráfico de caixas lado-a-lado, determine se homens tendem a
 # ver seu peso diferentemente das mulheres.
-h_weight_cdc <- subset(cdc$weight, cdc$gender == 'm')
-f_weight_cdc <- subset(cdc$weight, cdc$gender == 'f')
-summary(h_weight_cdc)
-summary(f_weight_cdc)
-boxplot(cdc$weight ~ cdc$gender)
+h_wtdesire_cdc <- subset(cdc$wtdesire, cdc$gender == 'm')
+f_wtdesire_cdc <- subset(cdc$wtdesire, cdc$gender == 'f')
+summary(h_wtdesire_cdc)
+summary(f_wtdesire_cdc)
+boxplot(cdc$wtdesire ~ cdc$gender)
 #R.As mulheres tendem a ver o seu peso acima do desejado mais que os homens.
+
+# Repostas: item 6
+# Agora chegou a hora de usar a criatividade. Encontre a média e o desvio padrão de weight e
+# determine qual a proporção de pesos que estão a um desvio padrão da média.
+#medidas descritivas
+# Media
+mean(cdc$weight)
+# Desvio Padrao
+sd(cdc$weight)
+hist(cdc$weight)
+#extrair apenas os pesos a um desvio padrao acima ou abaixo
+mdata <- subset(cdc, cdc$weight > mean(cdc$weight) + sd(cdc$weight) | cdc$weight < mean(cdc$weight) - sd(cdc$weight) )
+head(mdata)
+dim(mdata)
+5848/20000
+#R. 29% dos pesos estão acima ou abaixo de um desvio padrão.

@@ -54,8 +54,10 @@ barplot(table(cdc$smoke100))
 
 #ou utilizando a criação de um objeto antes
 smoke <- table(cdc$smoke100)
+smoke <- table(cdc$smoke100)/20000
 barplot(smoke)
 smoke
+
 
 #Exerício 2
 #Crie um sumário numérico para height (altura) e age (idade), e 
@@ -119,9 +121,11 @@ head(mdata)
 
 #extrair apenas os dados para homens E acima de 30 anos
 m_and_over30 <- subset(cdc, cdc$gender == "m" & cdc$age > 30)
+head(m_and_over30)
 
 #extrair apenas os dados para homens OU acima de 30 anos
-m_or_over30 <- subset(cdc, cdc$gender == "m" | cdc$age > 30)
+m_or_under30 <- subset(cdc, cdc$gender == "m" | cdc$age < 30)
+head(m_or_under30)
 
 #Exerício 4
 #Crie um novo objeto denominado under23_and_smoke (ou, se preferir, abaixo23_e_fuma) que contém todas as 
