@@ -88,7 +88,6 @@ qqline(sim_norm)
 
 qqnormsim(fdims$wgt)
 
-
 ########################################
 
 #Qual é a probabilidade de que uma mulher adulta jovem escolhida por acaso 
@@ -126,11 +125,101 @@ sum(fdims$wgt > 60) / length(fdims$wgt)
 
 ########################################
 
-
+# Se diz o valor da altura e tem a probabilidade
 pnorm(175.889, mean = 178, sd = 8.38, lower.tail = T)
+# Se diz o valor da area e tem a altura do fulano
 qnorm(0.40, mean = 178, sd = 8.38, lower.tail = TRUE, log.p = FALSE)
 
-pnorm(175, mean = 178, sd = 8.38, lower.tail = T)-pnorm(178, mean = 178, sd = 8.38, lower.tail = T)
-52
+# Qual é a probabilidade de um homem adulto estar entre 175cm e 188cm?
+pnorm(188, mean = 178, sd = 8.38, lower.tail = T)-pnorm(175, mean = 178, sd = 8.38, lower.tail = T)
+# R. 52%
+
+pnorm(170.0, mean = 178, sd = 8.38, lower.tail = T)
+# Calculo de Z
+(170-178)/8.38 
+pnorm(-0.9546, mean = 0, sd = 1, lower.tail = T)
+
 
 # SUA VEZ
+#Usando a mesma técnica, determine se os bii.di das mulheres parecem ser provenientes de uma distribuição normal.
+# (a)
+fbii.dimean <- mean(fdims$bii.di)
+fbii.disd <- sd(fdims$bii.di)
+
+fdims$Zbii.di <- (fdims$bii.di - fbii.dimean) / fbii.disd
+
+hist(fdims$bii.di)
+hist(fdims$Zbii.di)
+
+hist(fdims$Zbii.di, probability = TRUE)
+x <- -5:3
+y <- dnorm(x = x, mean = fbii.dimean, sd = fbii.disd)
+lines(x = x, y = y, col = "blue")
+
+qqnorm(fdims$Zbii.di)
+qqline(fdims$Zbii.di)
+
+sim_norm <- rnorm(n = length(fdims$Zbii.di), mean = fbii.dimean, sd = fbii.disd)
+hist(sim_norm, probability = TRUE)
+lines(x = x, y = y, col = "blue")
+qqnorm(sim_norm)
+qqline(sim_norm)
+
+qqnormsim(fdims$Zbii.di)
+
+# (b)
+felb.dimean <- mean(fdims$elb.di)
+felb.disd <- sd(fdims$elb.di)
+
+fdims$Zelb.di <- (fdims$elb.di - felb.dimean) / felb.disd
+
+qqnorm(fdims$Zelb.di)
+qqline(fdims$Zelb.di)
+
+# (c)
+fagemean <- mean(fdims$age)
+fagesd <- sd(fdims$age)
+
+fdims$Zage <- (fdims$age - fagemean) / fagesd
+
+qqnorm(fdims$Zage)
+qqline(fdims$Zage)
+
+# (d)
+fche.demean <- mean(fdims$che.de)
+fche.desd <- sd(fdims$che.de)
+
+fdims$Zche.de <- (fdims$che.de - fche.demean) / fche.desd
+
+qqnorm(fdims$Zche.de)
+qqline(fdims$Zche.de)
+
+#Como você pode ver, gráficos de probabilidade normal podem ser utilizados tanto para avaliar a
+#normalidade quanto visualizar a assimetria. Crie um gráfico de probabilidade normal para o diâ-
+#  metro do joelho feminino (kne.di). Baseado neste gráfico de probabilidade normal, você diria que
+#essa variável é simétrica, assimétrica à direita ou assimétrica à esquerda? Utiliza um histograma para
+#confirmar seu resultado.
+
+fkne.dimean <- mean(fdims$kne.di)
+fkne.disd <- sd(fdims$kne.di)
+
+fdims$Zkne.di <- (fdims$kne.di - fkne.dimean) / fkne.disd
+
+hist(fdims$kne.di)
+hist(fdims$Zkne.di)
+
+hist(fdims$kne.di, probability = TRUE)
+x <- 10:30
+y <- dnorm(x = x, mean = fkne.dimean, sd = fkne.disd)
+lines(x = x, y = y, col = "blue")
+
+qqnorm(fdims$kne.di)
+qqline(fdims$kne.di)
+
+sim_norm <- rnorm(n = length(fdims$kne.di), mean = fkne.dimean, sd = fkne.disd)
+hist(sim_norm, probability = TRUE)
+lines(x = x, y = y, col = "blue")
+qqnorm(sim_norm)
+qqline(sim_norm)
+
+qqnormsim(fdims$kne.di)

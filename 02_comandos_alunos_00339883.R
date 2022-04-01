@@ -29,7 +29,7 @@ barplot(table(sim_streak))
 
 #3. Como a distribuição dos comprimentos de sequência de Kobe Bryant, analisada na página 2, se
 #comparam à distribuição de comprimentos de sequência do arremessador simulado? 
-# R. Considerando a independencia como foi simulado, a simulação é comparável a sequencia de Kobe Bryant
+# R. Considerando a independencia como foi simulado, a simulação é comparável a sequencia de Kobe Bryant.
 # Utilizando essa comparação, você tem evidência de que o modelo das mãos quentes se ajusta aos padrões de
 #arremessos de Kobe? Explique.
 # O modelo das mãos quentes não se ajusta aos padrões de arremessos de kobe, porque vimos que
